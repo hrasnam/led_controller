@@ -9,30 +9,30 @@
   <div class="options">
     <p> Change the color of the led to: </p>
 
-    <div class="option">
+    <div class="option" onclick="submit('0')">
       <h3>White</h3>
     </div>
 
-    <div class="option">
+    <div class="option" onclick="submit('1')">
       <h3>Yellow</h3>
     </div>
 
-    <div class="option">
+    <div class="option" onclick="submit('2')">
       <h3>Purple</h3>
     </div>
 
-    <div class="option">
+    <div class="option" onclick="submit('3')">
       <h3>Cyan</h3>
     </div>
 
-    <div class="option">
+    <div class="option" onclick="submit('4')">
       <h3>Turned off</h3>
     </div>
 
-    <input type="submit" value="Start" onclick="submit()">
+    <input type="submit" value="Start" onclick="submit(1)">
 
     <script type="text/javascript">
-        function submit() {
+        function submit(value) {
             var xhr = new XMLHttpRequest();
             xhr.onreadystatechange = function () {
                 if (xhr.readyState === 4) {
@@ -42,9 +42,9 @@
             xhr.open('post', 'https://api.us-east-1.mbedcloud.com/v2/endpoints/0174368e1bbd000000000001001f3d1b/3201/10/5853', true);
             xhr.setRequestHeader('content-type', 'text/plain');
             xhr.setRequestHeader('Authorization', 'Bearer ak_2MDE3NDM2ODQzYmZjOTYxMWUyNDZmYjI0MDAwMDAwMDA017436855281c666e3df47fd000000008tnhUOKiwA8GcMZ9Pf7emSm9bZk6zFvK');
-            xhr.send('1');
+            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            xhr.send(value);
         }
-
     </script>
   </div>
 </body>
